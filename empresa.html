@@ -33,5 +33,50 @@
         <a href="contacto.html">Contacto</a>
       </nav><a class="btn btn-dark" href="contacto.html">Cotizar</a></header>
     <main><section class="section"><div class="section-head"><span>Empresa</span><h2>Fabricamos en Plátanos desde 1996.</h2><p>Carrara Hidromasajes es una empresa argentina dedicada a fabricar spas, bañeras, hidromasajes y receptáculos, con atención directa y oficio de fábrica.</p></div></section></main>
+  
+    <a class="float-wa" href="https://wa.me/541135894707">WhatsApp</a>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo"><img src="assets/carrara-logo.png" alt="Carrara Hidromasajes"></a>
+          <p>Fabricamos spas, bañeras y receptáculos desde 1996 en nuestra planta de Plátanos, Buenos Aires.</p>
+          <a class="btn btn-green" href="https://wa.me/541135894707">Hablar por WhatsApp</a>
+        </div>
+        <nav class="footer-nav">
+          <div class="footer-col">
+            <strong>Productos</strong>
+            <a href="spas.html">Spas</a>
+            <a href="baneras.html">Bañeras</a>
+            <a href="receptaculos.html">Receptáculos</a>
+          </div>
+          <div class="footer-col">
+            <strong>Soluciones</strong>
+            <a href="soluciones.html">Hogares</a>
+            <a href="soluciones.html">Hoteles</a>
+            <a href="soluciones.html">Obras</a>
+            <a href="soluciones.html">Revendedores</a>
+          </div>
+          <div class="footer-col">
+            <strong>Empresa</strong>
+            <a href="empresa.html">Nosotros</a>
+            <a href="recursos.html">Recursos</a>
+            <a href="contacto.html">Contacto</a>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2024 Carrara Hidromasajes · Av. Nicolás Milazzo 3251, Parque Industrial Plátanos</span>
+      </div>
+    </footer>
+
+    <script>
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
   </body>
 </html>
