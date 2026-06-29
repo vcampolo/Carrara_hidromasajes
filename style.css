@@ -799,6 +799,139 @@ h1 {
 /* ── Trust strip icons ──────────────────────────────────── */
 .trust-strip span { gap: 10px; }
 
+/* ── Solution cards ─────────────────────────────────────── */
+.solution-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 56px;
+}
+
+.solution-card {
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  padding: 48px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.22s ease, transform 0.22s ease;
+}
+
+.solution-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 60px rgba(20,18,14,0.10);
+}
+
+.solution-card.dark {
+  background: #080808;
+  color: #fff;
+  border-color: transparent;
+}
+
+.solution-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 26px;
+  font-size: 13px;
+  font-weight: 950;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--warm);
+}
+
+.solution-card.dark .solution-tag { color: rgba(255,255,255,0.45); }
+
+.solution-card h3 {
+  font-size: clamp(26px, 2.2vw, 36px);
+  line-height: 1.1;
+  letter-spacing: -0.05em;
+  margin-bottom: 14px;
+}
+
+.solution-card > p {
+  font-size: 17px;
+  line-height: 1.62;
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+
+.solution-card.dark > p { color: rgba(255,255,255,0.58); }
+
+.solution-benefits {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.solution-benefits li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #3a3733;
+}
+
+.solution-card.dark .solution-benefits li { color: rgba(255,255,255,0.76); }
+
+.solution-benefits li::before {
+  content: "✓";
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #f0eadc;
+  color: #806f4d;
+  font-size: 11px;
+  font-weight: 950;
+  margin-top: 1px;
+}
+
+.solution-card.dark .solution-benefits li::before {
+  background: rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.65);
+}
+
+.solution-footer {
+  margin-top: auto;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.solution-card.dark .solution-footer { border-color: rgba(255,255,255,0.1); }
+
+.solution-products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.solution-products span {
+  font-size: 13px;
+  font-weight: 850;
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: #f0eadc;
+  color: #806f4d;
+}
+
+.solution-card.dark .solution-products span {
+  background: rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.65);
+}
+
 @media (max-width: 980px) {
   .header {
     height: auto;
@@ -863,6 +996,10 @@ h1 {
 
   .footer-nav {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .solution-grid {
+    grid-template-columns: 1fr;
   }
 
   h1 {
