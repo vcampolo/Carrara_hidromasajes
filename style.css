@@ -614,8 +614,12 @@ h1 {
 .split-copy,
 .split-list {
   border-radius: 32px;
-  background: #f3efe7;
   padding: 54px;
+}
+
+.split-copy {
+  background: #fff;
+  border: 1px solid var(--line);
 }
 
 .split-copy span {
