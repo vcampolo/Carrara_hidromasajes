@@ -256,7 +256,8 @@ h1 {
   grid-row: 1;
 }
 
-.section-head h2 {
+.section-head h2,
+.section-head h1 {
   grid-column: 1;
   grid-row: 2;
 }
@@ -276,6 +277,7 @@ h1 {
 }
 
 .section-head h2,
+.section-head h1,
 .band h2,
 .cta h2 {
   font-size: clamp(38px, 4vw, 68px);
