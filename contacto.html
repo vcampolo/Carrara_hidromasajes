@@ -72,7 +72,7 @@
             <div class="contact-item"><strong>Horario</strong><span>Lunes a viernes, 8 a 17 h</span></div>
             <div class="actions"><a class="btn btn-green" href="https://wa.me/541135894707">Hablar por WhatsApp</a></div>
           </div>
-          <form class="contact-form" action="https://formspree.io/f/xdarykeq" method="POST">
+          <form class="contact-form" id="contact-form" action="https://formspree.io/f/xdarykeq" method="POST">
             <label>Nombre <span>*</span>
               <input type="text" name="nombre" required autocomplete="name">
             </label>
@@ -96,6 +96,7 @@
             <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px">
             <input type="hidden" name="_subject" value="Nueva consulta desde carrarahidromasajes.com.ar">
             <button class="btn btn-green" type="submit">Enviar consulta</button>
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
           </form>
         </div>
       </section>
@@ -144,6 +145,45 @@
         });
       }, { threshold: 0.1 });
       document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+      // Envío del formulario por AJAX: el usuario nunca sale del sitio
+      const form = document.getElementById('contact-form');
+      const status = document.getElementById('form-status');
+      if (form) {
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const btn = form.querySelector('button[type="submit"]');
+          const original = btn.textContent;
+          btn.disabled = true;
+          btn.textContent = 'Enviando…';
+          status.className = 'form-status';
+          status.textContent = '';
+          try {
+            const res = await fetch(form.action, {
+              method: 'POST',
+              body: new FormData(form),
+              headers: { 'Accept': 'application/json' }
+            });
+            if (res.ok) {
+              form.reset();
+              status.classList.add('ok');
+              status.textContent = '¡Gracias! Recibimos tu consulta y te respondemos a la brevedad.';
+            } else {
+              const data = await res.json().catch(() => ({}));
+              status.classList.add('error');
+              status.textContent = (data.errors && data.errors[0] && data.errors[0].message)
+                ? data.errors[0].message
+                : 'Hubo un problema al enviar. Probá de nuevo o escribinos por WhatsApp.';
+            }
+          } catch (err) {
+            status.classList.add('error');
+            status.textContent = 'No se pudo enviar. Revisá tu conexión o escribinos por WhatsApp.';
+          } finally {
+            btn.disabled = false;
+            btn.textContent = original;
+          }
+        });
+      }
     </script>
   </body>
 </html>

@@ -1284,3 +1284,27 @@ h1 {
   .contact-form label:nth-child(4),
   .contact-form label:nth-child(5) { grid-column: auto; }
 }
+
+/* ── Mensaje de estado del formulario ───────────────────── */
+.form-status {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.form-status:empty { display: none; }
+.form-status.ok {
+  padding: 16px 18px;
+  color: #0d7a3e;
+  background: #e7f7ee;
+  border: 1px solid #b9e6cd;
+  border-radius: 14px;
+}
+.form-status.error {
+  padding: 16px 18px;
+  color: #a3261d;
+  background: #fdecea;
+  border: 1px solid #f3c4bd;
+  border-radius: 14px;
+}
