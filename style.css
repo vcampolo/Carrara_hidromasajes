@@ -1125,6 +1125,25 @@ h1 {
   }
 }
 
+.page-intro {
+  width: min(1590px, calc(100% - 72px));
+  margin: 0 auto;
+  padding: 72px 0 0;
+}
+.page-intro span {
+  display: block;
+  margin-bottom: 16px;
+  color: var(--warm);
+  font-size: 18px;
+  font-weight: 950;
+}
+.page-intro h1 {
+  font-size: clamp(34px, 3.8vw, 58px);
+  line-height: 1.05;
+  letter-spacing: -0.055em;
+  max-width: 800px;
+}
+
 @media (max-width: 620px) {
   .header,
   .hero,

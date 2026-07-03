@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Productos | Carrara Hidromasajes</title>
+    <meta name="description" content="Spas, bañeras con hidromasaje y receptáculos de fabricación propia. Directo de fábrica desde Plátanos, Buenos Aires. Desde 1992.">
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
@@ -29,6 +30,56 @@
         <a href="empresa.html">Empresa</a>
         <a href="contacto.html">Contacto</a>
       </nav></header>
-    <main><section class="section"><div class="section-head"><span>Productos</span><h2>Nuestras líneas</h2><p>Elegí por dónde querés empezar: relax en casa, un baño más cómodo o una ducha bien resuelta.</p></div><div class="product-showcase"><article class="product-card"><div class="card-img spa"></div><div class="card-body"><h3>Spas</h3><p>Tu propio rincón de relax, sin salir de casa. Hidromasaje para disfrutar solo, en familia o con amigos.</p><div class="chips"><span>Hasta 6 personas</span><span>Ideal exterior</span></div><a class="card-cta" href="spas.html">Ver spas <span>→</span></a></div></article><article class="product-card"><div class="card-img bath"></div><div class="card-body"><h3>Bañeras</h3><p>Bañeras que transforman el baño en un espacio más cómodo, simple y disfrutable todos los días.</p><div class="chips"><span>Con o sin hidromasaje</span><span>A pedido</span></div><a class="card-cta" href="baneras.html">Ver bañeras <span>→</span></a></div></article><article class="product-card"><div class="card-img shower"></div><div class="card-body"><h3>Receptáculos</h3><p>Platos de ducha para baños modernos: prácticos, prolijos y con una estética limpia.</p><div class="chips"><span>Base antideslizante</span><span>Varias medidas</span></div><a class="card-cta" href="receptaculos.html">Ver receptáculos <span>→</span></a></div></article></div></section></main>
+    <main>
+      <div class="page-intro">
+        <span>Productos</span>
+        <h1>Spas, bañeras y receptáculos de fabricación propia</h1>
+      </div>
+      <section class="section"><div class="section-head"><span>Líneas</span><h2>Nuestras líneas</h2><p>Elegí por dónde querés empezar: relax en casa, un baño más cómodo o una ducha bien resuelta.</p></div><div class="product-showcase"><article class="product-card"><div class="card-img spa"></div><div class="card-body"><h3>Spas</h3><p>Tu propio rincón de relax, sin salir de casa. Hidromasaje para disfrutar solo, en familia o con amigos.</p><div class="chips"><span>Hasta 6 personas</span><span>Ideal exterior</span></div><a class="card-cta" href="spas.html">Ver spas <span>→</span></a></div></article><article class="product-card"><div class="card-img bath"></div><div class="card-body"><h3>Bañeras</h3><p>Bañeras que transforman el baño en un espacio más cómodo, simple y disfrutable todos los días.</p><div class="chips"><span>Con o sin hidromasaje</span><span>A pedido</span></div><a class="card-cta" href="baneras.html">Ver bañeras <span>→</span></a></div></article><article class="product-card"><div class="card-img shower"></div><div class="card-body"><h3>Receptáculos</h3><p>Platos de ducha para baños modernos: prácticos, prolijos y con una estética limpia.</p><div class="chips"><span>Base antideslizante</span><span>Varias medidas</span></div><a class="card-cta" href="receptaculos.html">Ver receptáculos <span>→</span></a></div></article></div></section>
+    </main>
+
+    <a class="float-wa" href="https://wa.me/541135894707">WhatsApp</a>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo"><img src="assets/carrara-logo.png" alt="Carrara Hidromasajes"></a>
+          <p>Fabricamos spas, bañeras y receptáculos desde 1992 en nuestra planta de Plátanos, Buenos Aires.</p>
+          <a class="btn btn-green" href="https://wa.me/541135894707">Hablar por WhatsApp</a>
+        </div>
+        <nav class="footer-nav">
+          <div class="footer-col">
+            <strong>Productos</strong>
+            <a href="spas.html">Spas</a>
+            <a href="baneras.html">Bañeras</a>
+            <a href="receptaculos.html">Receptáculos</a>
+          </div>
+          <div class="footer-col">
+            <strong>Soluciones</strong>
+            <a href="hogares.html">Hogares</a>
+            <a href="hoteles.html">Hoteles</a>
+            <a href="obras.html">Obras</a>
+            <a href="revendedores.html">Revendedores</a>
+          </div>
+          <div class="footer-col">
+            <strong>Empresa</strong>
+            <a href="empresa.html">Nosotros</a>
+            <a href="contacto.html">Contacto</a>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Carrara Hidromasajes · Av. Nicolás Milazzo 3251, Parque Industrial Plátanos</span>
+      </div>
+    </footer>
+
+    <script>
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
   </body>
 </html>
