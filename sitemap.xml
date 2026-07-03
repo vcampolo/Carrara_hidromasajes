@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.carrarahidromasajes.com.ar/</loc></url>
-  <url><loc>https://www.carrarahidromasajes.com.ar/productos.html</loc></url>
-  <url><loc>https://www.carrarahidromasajes.com.ar/soluciones.html</loc></url>
-  <url><loc>https://www.carrarahidromasajes.com.ar/recursos.html</loc></url>
-  <url><loc>https://www.carrarahidromasajes.com.ar/contacto.html</loc></url>
+  <url><loc>https://www.carrarahidromasajes.com.ar/</loc><lastmod>2026-07-03</lastmod></url>
+  <url><loc>https://www.carrarahidromasajes.com.ar/productos.html</loc><lastmod>2026-07-03</lastmod></url>
+  <url><loc>https://www.carrarahidromasajes.com.ar/spas.html</loc><lastmod>2026-07-03</lastmod></url>
+  <url><loc>https://www.carrarahidromasajes.com.ar/baneras.html</loc><lastmod>2026-07-03</lastmod></url>
+  <url><loc>https://www.carrarahidromasajes.com.ar/receptaculos.html</loc><lastmod>2026-07-03</lastmod></url>
+  <url><loc>https://www.carrarahidromasajes.com.ar/soluciones.html</loc><lastmod>2026-07-03</lastmod></url>
+  <url><loc>https://www.carrarahidromasajes.com.ar/hogares.html</loc><lastmod>2026-07-03</lastmod></url>
+  <url><loc>https://www.carrarahidromasajes.com.ar/hoteles.html</loc><lastmod>2026-07-03</lastmod></url>
+  <url><loc>https://www.carrarahidromasajes.com.ar/obras.html</loc><lastmod>2026-07-03</lastmod></url>
+  <url><loc>https://www.carrarahidromasajes.com.ar/revendedores.html</loc><lastmod>2026-07-03</lastmod></url>
+  <url><loc>https://www.carrarahidromasajes.com.ar/empresa.html</loc><lastmod>2026-07-03</lastmod></url>
+  <url><loc>https://www.carrarahidromasajes.com.ar/contacto.html</loc><lastmod>2026-07-03</lastmod></url>
 </urlset>
