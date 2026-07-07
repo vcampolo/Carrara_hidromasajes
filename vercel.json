@@ -1,6 +1,7 @@
 {
   "redirects": [
-    { "source": "/index.php", "destination": "/", "permanent": true }
+    { "source": "/index.php", "destination": "/", "permanent": true },
+    { "source": "/catalogo-b2b.html", "destination": "/productos.html", "permanent": true }
   ],
   "headers": [
     {
