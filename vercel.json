@@ -1,4 +1,7 @@
 {
+  "redirects": [
+    { "source": "/index.php", "destination": "/", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/",
