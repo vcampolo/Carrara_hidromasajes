@@ -3,6 +3,14 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18254020421"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-18254020421');
+    </script>
     <title>Hogares | Carrara Hidromasajes</title>
     <meta name="description" content="Spas, bañeras y receptáculos para el hogar. Carrara Hidromasajes, fabricación propia desde 1992.">
     
@@ -156,6 +164,18 @@
         });
       }, { threshold: 0.1 });
       document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+      <script>
+      // Conversión Google Ads: clic en WhatsApp
+      document.querySelectorAll('a[href^="https://wa.me/"]').forEach(function(a) {
+        a.addEventListener('click', function() {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-18254020421/Z0RYCJ_yzNAcEMX-mIBE',
+            'value': 1.0,
+            'currency': 'ARS'
+          });
+        });
+      });
     </script>
   </body>
 </html>
