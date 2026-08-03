@@ -82,11 +82,11 @@
         <div class="section-head"><span>Contacto</span><h2>Mandanos tu consulta.</h2><p>Respondemos el mismo día. Elegí el canal que te quede más cómodo o dejanos tus datos y te escribimos nosotros.</p></div>
         <div class="contact-layout">
           <div class="contact-info">
-            <div class="contact-item"><strong>WhatsApp</strong><a href="https://wa.me/541135894707">11 3589-4707</a></div>
+            <div class="contact-item"><strong>WhatsApp</strong><a href="https://wa.me/541135894707?text=Hola%21%20Quiero%20consultar%20por%20un%20hidromasaje.">11 3589-4707</a></div>
             <div class="contact-item"><strong>Mail</strong><a href="mailto:valentin@carrarahidromasajes.com.ar">valentin@carrarahidromasajes.com.ar</a></div>
             <div class="contact-item"><strong>Taller</strong><span>Av. Nicolás Milazzo 3251, Parque Industrial Plátanos, Buenos Aires</span></div>
             <div class="contact-item"><strong>Horario</strong><span>Lunes a viernes, 8 a 17 h</span></div>
-            <div class="actions"><a class="btn btn-green" href="https://wa.me/541135894707">Hablar por WhatsApp</a></div>
+            <div class="actions"><a class="btn btn-green" href="https://wa.me/541135894707?text=Hola%21%20Quiero%20consultar%20por%20un%20hidromasaje.">Hablar por WhatsApp</a></div>
           </div>
           <form class="contact-form" id="contact-form" action="https://formspree.io/f/xdarykeq" method="POST">
             <label>Nombre <span>*</span>
@@ -118,7 +118,7 @@
       </section>
     </main>
   
-    <a class="float-wa" href="https://wa.me/541135894707">WhatsApp</a>
+    <a class="float-wa" href="https://wa.me/541135894707?text=Hola%21%20Quiero%20consultar%20por%20un%20hidromasaje.">WhatsApp</a>
 
     <footer class="site-footer">
       <div class="footer-inner">
@@ -126,7 +126,7 @@
           <a href="index.html" class="footer-logo"><img src="assets/carrara-logo.webp" alt="Carrara Hidromasajes" loading="lazy"></a>
           <p>Fabricamos spas, bañeras y receptáculos desde 1992 en nuestra planta de Plátanos, Buenos Aires.</p>
           <p class="footer-contact"><a href="tel:+541135894707">+54 11 3589-4707</a> · <a href="mailto:valentin@carrarahidromasajes.com.ar">valentin@carrarahidromasajes.com.ar</a><br>Av. Nicolás Milazzo 3251, Parque Industrial Plátanos, Buenos Aires</p>
-          <a class="btn btn-green" href="https://wa.me/541135894707">Hablar por WhatsApp</a>
+          <a class="btn btn-green" href="https://wa.me/541135894707?text=Hola%21%20Quiero%20consultar%20por%20un%20hidromasaje.">Hablar por WhatsApp</a>
         </div>
         <nav class="footer-nav">
           <div class="footer-col">
@@ -181,9 +181,11 @@
               headers: { 'Accept': 'application/json' }
             });
             if (res.ok) {
+              // Éxito real: vamos a la página de gracias.
+              // Esa carga de página es la que Google Ads mide como conversión.
               form.reset();
-              status.classList.add('ok');
-              status.textContent = '¡Gracias! Recibimos tu consulta y te respondemos a la brevedad.';
+              window.location.href = 'gracias.html';
+              return;
             } else {
               const data = await res.json().catch(() => ({}));
               status.classList.add('error');
