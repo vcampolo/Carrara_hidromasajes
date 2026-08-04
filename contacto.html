@@ -165,6 +165,26 @@
       // Envío del formulario por AJAX: el usuario nunca sale del sitio
       const form = document.getElementById('contact-form');
       const status = document.getElementById('form-status');
+
+      // Si llegan desde una ficha de producto (contacto.html?producto=...),
+      // preseleccionamos la categoría y escribimos el modelo en el mensaje.
+      (function () {
+        const prod = new URLSearchParams(location.search).get('producto');
+        if (!prod || !form) return;
+        const sel = form.querySelector('select[name="producto"]');
+        const msg = form.querySelector('textarea[name="mensaje"]');
+        const cat = /^spa/i.test(prod) ? 'Spa'
+                  : /^ba(\u00f1|n)era/i.test(prod) ? 'Ba\u00f1era'
+                  : /^recept/i.test(prod) ? 'Recept\u00e1culo' : null;
+        if (sel && cat) {
+          Array.prototype.forEach.call(sel.options, function (o) {
+            if (o.textContent.trim() === cat) sel.value = o.value;
+          });
+        }
+        if (msg && !msg.value) {
+          msg.value = 'Hola, quiero consultar el precio del ' + prod + '.';
+        }
+      })();
       if (form) {
         form.addEventListener('submit', async (e) => {
           e.preventDefault();
