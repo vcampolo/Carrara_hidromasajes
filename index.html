@@ -22,6 +22,9 @@
     <meta property="og:url" content="https://www.carrarahidromasajes.com.ar/">
     <meta property="og:image" content="https://www.carrarahidromasajes.com.ar/assets/hero-spa-real.jpg">
     <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
   <script type="application/ld+json">
     {
@@ -49,8 +52,8 @@
     </head>
   <body>
     <header class="header">
-      <a class="logo" href="index.html" aria-label="Carrara Hidromasajes"><img src="assets/carrara-logo.webp" alt="Carrara Hidromasajes"></a>
-      <nav class="nav" aria-label="Navegación principal">
+      <a class="logo" href="index.html" aria-label="Carrara Hidromasajes"><img src="assets/carrara-logo.webp" alt="Carrara Hidromasajes" width="666" height="375"></a>
+      <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button><nav class="nav" id="main-nav" aria-label="Navegación principal">
         <a class="active" href="index.html">Inicio</a>
         <div class="nav-menu">
           <a class="nav-trigger" href="productos.html">Productos <span>⌄</span></a>
@@ -81,11 +84,11 @@
           <p>Fabricamos spas, bañeras, hidromasajes y receptáculos para transformar baños, terrazas y espacios de relax. Productos pensados para disfrutar, resolver bien y comprar con respaldo de fábrica.</p>
           <div class="actions">
             <a class="btn btn-dark" href="productos.html">Ver productos</a>
-            <a class="btn btn-light" href="contacto.html">Hablar por WhatsApp</a>
+            <a class="btn btn-light" href="https://wa.me/541135894707?text=Hola%21%20Quiero%20consultar%20por%20un%20hidromasaje.">Hablar por WhatsApp</a>
           </div>
         </div>
         <div class="hero-media">
-          <img src="assets/hero-spa-real.webp" alt="Spa de hidromasaje Carrara instalado en deck de madera">
+          <img src="assets/hero-spa-real.webp" alt="Spa de hidromasaje Carrara instalado en deck de madera" width="1448" height="1086" fetchpriority="high">
         </div>
       </section>
 
@@ -150,19 +153,16 @@
         <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Atención directa</span>
       </section>
 
-      <section class="section reveal">
-        <div class="section-head">
-          <span>Diseñado para</span>
-          <h2>Distintas formas de disfrutar y proyectar.</h2>
-          <p>Un producto puede elegirse por relax, por uso familiar, por diseño, por practicidad o por el lugar donde va instalado. Lo importante es encontrar la opción adecuada desde el principio.</p>
+      <section class="factory-section reveal">
+        <div class="factory-copy">
+          <span>Fabricación propia</span>
+          <h2>Hecho de cero en nuestra planta de Plátanos.</h2>
+          <p>Termoformamos el acrílico en horno propio de 4 × 4 metros —de los pocos de ese tamaño en el país—, lo que nos permite formar la cuba de una sola pieza, sin uniones. Después armamos el hidromasaje y entregamos a medida, sin tercerizar nada. Lo hacemos así desde 1992.</p>
         </div>
-        <div class="cards six">
-          <article class="mini-card"><h3>Relax en casa</h3><p>Spas y bañeras para transformar baños, patios y terrazas en lugares de descanso.</p></article>
-          <article class="mini-card"><h3>Familias</h3><p>Espacios cómodos para compartir, desconectar y sumar momentos cerca de casa.</p></article>
-          <article class="mini-card"><h3>Baños modernos</h3><p>Bañeras y receptáculos para renovar el baño con una terminación más limpia.</p></article>
-          <article class="mini-card"><h3>Bienestar</h3><p>Productos para sumar confort, agua y pausa a la rutina diaria.</p></article>
-          <article class="mini-card"><h3>Diseño simple</h3><p>Líneas claras que se integran bien sin recargar el espacio.</p></article>
-          <article class="mini-card"><h3>Espacios exteriores</h3><p>Soluciones para decks, jardines, patios y áreas semicubiertas.</p></article>
+        <div class="factory-facts">
+          <div><strong>4 × 4 m</strong><span>Horno propio de termoformado</span></div>
+          <div><strong>1 pieza</strong><span>Cuba sin uniones</span></div>
+          <div><strong>5 años</strong><span>Garantía de fábrica</span></div>
         </div>
       </section>
 
@@ -206,7 +206,7 @@
     <footer class="site-footer">
       <div class="footer-inner">
         <div class="footer-brand">
-          <a href="index.html" class="footer-logo"><img src="assets/carrara-logo.webp" alt="Carrara Hidromasajes" loading="lazy"></a>
+          <a href="index.html" class="footer-logo"><img src="assets/carrara-logo.webp" alt="Carrara Hidromasajes" loading="lazy" width="666" height="375"></a>
           <p>Fabricamos spas, bañeras y receptáculos desde 1992 en nuestra planta de Plátanos, Buenos Aires.</p>
           <p class="footer-contact"><a href="tel:+541135894707">+54 11 3589-4707</a> · <a href="mailto:valentin@carrarahidromasajes.com.ar">valentin@carrarahidromasajes.com.ar</a><br>Av. Nicolás Milazzo 3251, Parque Industrial Plátanos, Buenos Aires</p>
           <a class="btn btn-green" href="https://wa.me/541135894707?text=Hola%21%20Quiero%20consultar%20por%20un%20hidromasaje.">Hablar por WhatsApp</a>
@@ -242,13 +242,16 @@
         entries.forEach(e => {
           if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
         });
-      }, { threshold: 0.1 });
+      }, { threshold: 0, rootMargin: '0px 0px 20% 0px' });
       document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
       <script>
-      // Conversión Google Ads: clic en WhatsApp
+      // Conversión Google Ads: clic en WhatsApp (máximo 1 por visita)
+      let waConversionSent = false;
       document.querySelectorAll('a[href^="https://wa.me/"]').forEach(function(a) {
         a.addEventListener('click', function() {
+          if (waConversionSent) return;
+          waConversionSent = true;
           gtag('event', 'conversion', {
             'send_to': 'AW-18254020421/Z0RYCJ_yzNAcEMX-mIBE',
             'value': 1.0,
@@ -256,6 +259,23 @@
           });
         });
       });
+    </script>
+      <script>
+      // Menú móvil
+      const navToggle = document.querySelector('.nav-toggle');
+      const mainNav = document.getElementById('main-nav');
+      if (navToggle && mainNav) {
+        navToggle.addEventListener('click', function() {
+          const open = document.body.classList.toggle('nav-open');
+          navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+        mainNav.querySelectorAll('a').forEach(function(a) {
+          a.addEventListener('click', function() {
+            document.body.classList.remove('nav-open');
+            navToggle.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
     </script>
   </body>
 </html>

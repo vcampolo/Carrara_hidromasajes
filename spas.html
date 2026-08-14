@@ -22,6 +22,9 @@
     <meta property="og:url" content="https://www.carrarahidromasajes.com.ar/spas.html">
     <meta property="og:image" content="https://www.carrarahidromasajes.com.ar/assets/hero-spa-real.jpg">
     <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
       <script type="application/ld+json">
     {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.carrarahidromasajes.com.ar/"}, {"@type": "ListItem", "position": 2, "name": "Productos", "item": "https://www.carrarahidromasajes.com.ar/productos.html"}, {"@type": "ListItem", "position": 3, "name": "Spas", "item": "https://www.carrarahidromasajes.com.ar/spas.html"}]}
@@ -29,8 +32,8 @@
     </head>
   <body>
     <header class="header">
-      <a class="logo" href="index.html" aria-label="Carrara Hidromasajes"><img src="assets/carrara-logo.webp" alt="Carrara Hidromasajes"></a>
-      <nav class="nav" aria-label="Navegación principal">
+      <a class="logo" href="index.html" aria-label="Carrara Hidromasajes"><img src="assets/carrara-logo.webp" alt="Carrara Hidromasajes" width="666" height="375"></a>
+      <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button><nav class="nav" id="main-nav" aria-label="Navegación principal">
         <a href="index.html">Inicio</a>
         <div class="nav-menu">
           <a class="nav-trigger active" href="productos.html">Productos <span>⌄</span></a>
@@ -127,7 +130,16 @@
           </article>
           <article class="bath-card reveal">
             <div class="bath-img">
-              <span class="bath-img-placeholder">FOTO PRÓXIMAMENTE</span>
+              <div class="spa-carousel" data-carousel>
+                <div class="spa-carousel-track">
+                  <img src="assets/spa-redondo-1.webp" alt="Spa Redondo de hidromasaje Carrara instalado en deck" loading="lazy" decoding="async">
+                  <img src="assets/spa-redondo-2.webp" alt="Spa Redondo de hidromasaje Carrara — Ø 195 × 75 cm" loading="lazy" decoding="async">
+                  <img src="assets/spa-redondo-3.webp" alt="Spa Redondo de hidromasaje Carrara, vista superior" loading="lazy" decoding="async">
+                </div>
+                <button class="spa-carousel-btn prev" type="button" aria-label="Foto anterior">‹</button>
+                <button class="spa-carousel-btn next" type="button" aria-label="Foto siguiente">›</button>
+                <div class="spa-carousel-dots"></div>
+              </div>
             </div>
             <div class="bath-body">
               <h3>Redondo</h3>
@@ -141,29 +153,47 @@
           </article>
           <article class="bath-card reveal">
             <div class="bath-img">
-              <span class="bath-img-placeholder">FOTO PRÓXIMAMENTE</span>
+              <div class="spa-carousel" data-carousel>
+                <div class="spa-carousel-track">
+                  <img src="assets/spa-tango195-1.webp" alt="Spa Tango 195 de hidromasaje Carrara instalado junto a la pileta" loading="lazy" decoding="async">
+                  <img src="assets/spa-tango195-2.webp" alt="Spa Tango 195 de hidromasaje Carrara — 195 × 195 × 75 cm" loading="lazy" decoding="async">
+                  <img src="assets/spa-tango195-3.webp" alt="Spa Tango 195 de hidromasaje Carrara, vista superior" loading="lazy" decoding="async">
+                </div>
+                <button class="spa-carousel-btn prev" type="button" aria-label="Foto anterior">‹</button>
+                <button class="spa-carousel-btn next" type="button" aria-label="Foto siguiente">›</button>
+                <div class="spa-carousel-dots"></div>
+              </div>
             </div>
             <div class="bath-body">
-              <h3>Cuadrado</h3>
+              <h3>Tango 195</h3>
               <p class="bath-desc">El cuadrado clásico, más profundo que el Minimalista.</p>
               <div class="bath-sizes"><span>Cuadrado</span><span>195 × 195 × 75</span></div>
               <div class="bath-actions">
-                <a class="btn btn-green btn-sm" href="contacto.html?producto=Spa%20Cuadrado">Pedir precio</a>
-                <a class="bath-cta" href="https://wa.me/541135894707?text=%C2%A1Hola%21%20Me%20interesa%20el%20spa%20Cuadrado%20%28195%C3%97195%C3%9775%29.%20%C2%BFPod%C3%A9s%20darme%20m%C3%A1s%20info%3F">WhatsApp →</a>
+                <a class="btn btn-green btn-sm" href="contacto.html?producto=Spa%20Tango%20195">Pedir precio</a>
+                <a class="bath-cta" href="https://wa.me/541135894707?text=%C2%A1Hola%21%20Me%20interesa%20el%20spa%20Tango%20195%20%28195%C3%97195%C3%9775%29.%20%C2%BFPod%C3%A9s%20darme%20m%C3%A1s%20info%3F">WhatsApp →</a>
               </div>
             </div>
           </article>
           <article class="bath-card reveal">
             <div class="bath-img">
-              <span class="bath-img-placeholder">FOTO PRÓXIMAMENTE</span>
+              <div class="spa-carousel" data-carousel>
+                <div class="spa-carousel-track">
+                  <img src="assets/spa-tango225-1.webp" alt="Spa Tango 225 de hidromasaje Carrara instalado en deck" loading="lazy" decoding="async">
+                  <img src="assets/spa-tango225-2.webp" alt="Spa Tango 225 de hidromasaje Carrara — 225 × 225 × 90 cm" loading="lazy" decoding="async">
+                  <img src="assets/spa-tango225-3.webp" alt="Spa Tango 225 Carrara instalado en terraza, terminación granito azul" loading="lazy" decoding="async">
+                </div>
+                <button class="spa-carousel-btn prev" type="button" aria-label="Foto anterior">‹</button>
+                <button class="spa-carousel-btn next" type="button" aria-label="Foto siguiente">›</button>
+                <div class="spa-carousel-dots"></div>
+              </div>
             </div>
             <div class="bath-body">
-              <h3>225</h3>
+              <h3>Tango 225</h3>
               <p class="bath-desc">El más amplio y profundo. Para 5 o 6 personas.</p>
               <div class="bath-sizes"><span>Cuadrado</span><span>225 × 225 × 90</span></div>
               <div class="bath-actions">
-                <a class="btn btn-green btn-sm" href="contacto.html?producto=Spa%20225">Pedir precio</a>
-                <a class="bath-cta" href="https://wa.me/541135894707?text=%C2%A1Hola%21%20Me%20interesa%20el%20spa%20225%20%28225%C3%97225%C3%9790%29.%20%C2%BFPod%C3%A9s%20darme%20m%C3%A1s%20info%3F">WhatsApp →</a>
+                <a class="btn btn-green btn-sm" href="contacto.html?producto=Spa%20Tango%20225">Pedir precio</a>
+                <a class="bath-cta" href="https://wa.me/541135894707?text=%C2%A1Hola%21%20Me%20interesa%20el%20spa%20Tango%20225%20%28225%C3%97225%C3%9790%29.%20%C2%BFPod%C3%A9s%20darme%20m%C3%A1s%20info%3F">WhatsApp →</a>
               </div>
             </div>
           </article>
@@ -173,9 +203,9 @@
       <section class="spa-intro">
         <div>
           <span>La línea</span>
-          <h2>Del Studio al 225.</h2>
+          <h2>Del Studio al Tango 225.</h2>
         </div>
-        <p>Fabricamos cinco modelos de spa —lo que muchos conocen como jacuzzi—, pensados para resolver distintos espacios: desde el Studio, que entra donde el lugar manda, hasta el 225, el más amplio de la línea. Todos en acrílico termoformado con sistema de hidromasaje, producidos de cero acá en Argentina, y adaptables a medida según el proyecto.</p>
+        <p>Fabricamos cinco modelos de spa —lo que muchos conocen como jacuzzi—, pensados para resolver distintos espacios: desde el Studio, que entra donde el lugar manda, hasta el Tango 225, el más amplio de la línea. Todos en acrílico termoformado con sistema de hidromasaje, producidos de cero acá en Argentina, y adaptables a medida según el proyecto.</p>
       </section>
 
       <section class="factory-section">
@@ -203,7 +233,7 @@
     <footer class="site-footer">
       <div class="footer-inner">
         <div class="footer-brand">
-          <a href="index.html" class="footer-logo"><img src="assets/carrara-logo.webp" alt="Carrara Hidromasajes" loading="lazy"></a>
+          <a href="index.html" class="footer-logo"><img src="assets/carrara-logo.webp" alt="Carrara Hidromasajes" loading="lazy" width="666" height="375"></a>
           <p>Fabricamos spas, bañeras y receptáculos desde 1992 en nuestra planta de Plátanos, Buenos Aires.</p>
           <p class="footer-contact"><a href="tel:+541135894707">+54 11 3589-4707</a> · <a href="mailto:valentin@carrarahidromasajes.com.ar">valentin@carrarahidromasajes.com.ar</a><br>Av. Nicolás Milazzo 3251, Parque Industrial Plátanos, Buenos Aires</p>
           <a class="btn btn-green" href="https://wa.me/541135894707?text=Hola%21%20Quiero%20consultar%20por%20un%20spa.">Hablar por WhatsApp</a>
@@ -239,7 +269,7 @@
         entries.forEach(e => {
           if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
         });
-      }, { threshold: 0.1 });
+      }, { threshold: 0, rootMargin: '0px 0px 20% 0px' });
       document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
       // Carrusel de fotos en tarjetas de spa
@@ -286,6 +316,23 @@
           });
         });
       });
+    </script>
+      <script>
+      // Menú móvil
+      const navToggle = document.querySelector('.nav-toggle');
+      const mainNav = document.getElementById('main-nav');
+      if (navToggle && mainNav) {
+        navToggle.addEventListener('click', function() {
+          const open = document.body.classList.toggle('nav-open');
+          navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+        mainNav.querySelectorAll('a').forEach(function(a) {
+          a.addEventListener('click', function() {
+            document.body.classList.remove('nav-open');
+            navToggle.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
     </script>
   </body>
 </html>
