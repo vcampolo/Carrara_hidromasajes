@@ -272,7 +272,7 @@
       }, { threshold: 0, rootMargin: '0px 0px 20% 0px' });
       document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-      // Carrusel de fotos en tarjetas de spa
+      // Carrusel de fotos en tarjetas de spa (con autoplay)
       document.querySelectorAll('[data-carousel]').forEach(function(car){
         var track = car.querySelector('.spa-carousel-track');
         var imgs = track.children;
@@ -283,7 +283,7 @@
           var d = document.createElement('button');
           d.type = 'button';
           d.setAttribute('aria-label', 'Ir a la foto ' + (i + 1));
-          (function(n){ d.addEventListener('click', function(){ go(n); }); })(i);
+          (function(n){ d.addEventListener('click', function(){ go(n); restart(); }); })(i);
           dotsWrap.appendChild(d);
         }
         var dots = dotsWrap.children;
@@ -292,17 +292,25 @@
           track.style.transform = 'translateX(-' + (idx * 100) + '%)';
           for (var i = 0; i < dots.length; i++) dots[i].classList.toggle('active', i === idx);
         }
-        car.querySelector('.prev').addEventListener('click', function(){ go(idx - 1); });
-        car.querySelector('.next').addEventListener('click', function(){ go(idx + 1); });
+        var timer;
+        function play(){ timer = setInterval(function(){ go(idx + 1); }, 3800); }
+        function stop(){ clearInterval(timer); }
+        function restart(){ stop(); play(); }
+        car.querySelector('.prev').addEventListener('click', function(){ go(idx - 1); restart(); });
+        car.querySelector('.next').addEventListener('click', function(){ go(idx + 1); restart(); });
+        car.addEventListener('mouseenter', stop);
+        car.addEventListener('mouseleave', play);
         var x0 = null;
-        car.addEventListener('touchstart', function(e){ x0 = e.touches[0].clientX; }, { passive: true });
+        car.addEventListener('touchstart', function(e){ x0 = e.touches[0].clientX; stop(); }, { passive: true });
         car.addEventListener('touchend', function(e){
           if (x0 === null) return;
           var dx = e.changedTouches[0].clientX - x0;
           if (Math.abs(dx) > 40) go(dx < 0 ? idx + 1 : idx - 1);
           x0 = null;
+          play();
         });
         go(0);
+        play();
       });
     </script>
       <script>
