@@ -170,10 +170,19 @@
       const status = document.getElementById('form-status');
 
       // Si llegan desde una ficha de producto (contacto.html?producto=...),
-      // preseleccionamos la categoría y escribimos el modelo en el mensaje.
+      // preseleccionamos la categoría, escribimos el modelo en el mensaje
+      // y actualizamos también los botones de WhatsApp de la página.
       (function () {
         const prod = new URLSearchParams(location.search).get('producto');
-        if (!prod || !form) return;
+        if (!prod) return;
+
+        // Botones de WhatsApp: incluir el modelo en el mensaje pre-cargado
+        const waText = encodeURIComponent('Hola! Estoy interesado en el ' + prod + '. ¿Podés darme más info?');
+        document.querySelectorAll('a[href^="https://wa.me/541135894707"]').forEach(function (a) {
+          a.href = 'https://wa.me/541135894707?text=' + waText;
+        });
+
+        if (!form) return;
         const sel = form.querySelector('select[name="producto"]');
         const msg = form.querySelector('textarea[name="mensaje"]');
         const cat = /^spa/i.test(prod) ? 'Spa'
