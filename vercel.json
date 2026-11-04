@@ -1,25 +1,72 @@
 {
   "redirects": [
-    { "source": "/index.php", "destination": "/", "permanent": true },
-    { "source": "/catalogo-b2b.html", "destination": "/productos.html", "permanent": true }
+    {
+      "source": "/index.php",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/catalogo-b2b.html",
+      "destination": "/revendedores.html",
+      "permanent": true
+    },
+    {
+      "source": "/productos.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/soluciones.html",
+      "destination": "/revendedores.html",
+      "permanent": true
+    },
+    {
+      "source": "/hogares.html",
+      "destination": "/spas.html",
+      "permanent": true
+    },
+    {
+      "source": "/hoteles.html",
+      "destination": "/revendedores.html",
+      "permanent": true
+    },
+    {
+      "source": "/obras.html",
+      "destination": "/revendedores.html",
+      "permanent": true
+    },
+    {
+      "source": "/recursos.html",
+      "destination": "/contacto.html",
+      "permanent": true
+    }
   ],
   "headers": [
     {
       "source": "/",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
       ]
     },
     {
       "source": "/(.*)\\.html",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
       ]
     },
     {
       "source": "/assets/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=604800, must-revalidate" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, must-revalidate"
+        }
       ]
     }
   ]
