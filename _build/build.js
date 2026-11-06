@@ -22,7 +22,7 @@ const BUSINESS = {
 const crumbsLd = items => ({ "@context": "https://schema.org", "@type": "BreadcrumbList",
   itemListElement: items.map(([name, url], i) => ({ "@type": "ListItem", position: i + 1, name, item: SITE + url })) });
 
-const NAV = [["spas.html", "Spas"], ["baneras.html", "Bañeras"], ["receptaculos.html", "Receptáculos"], ["revendedores.html", "Profesionales"], ["empresa.html", "Fábrica"], ["contacto.html", "Contacto"]];
+const NAV = [["spas.html", "Spas"], ["baneras.html", "Bañeras"], ["receptaculos.html", "Receptáculos"], ["personalizar.html", "Personalizá"], ["revendedores.html", "Profesionales"], ["empresa.html", "Fábrica"], ["contacto.html", "Contacto"]];
 
 function layout({ file, title, description, image = "assets/hero-spa-real.jpg", nav, body, ld = [], robots }) {
   const canonical = SITE + (file === "index.html" ? "" : file);
@@ -69,7 +69,7 @@ ${body}
   <div class="wrap">
     <div class="brand"><span class="logo" role="img" aria-label="Carrara Hidromasajes"></span>
       <p style="margin-top:16px;font-size:15px;max-width:36ch">Spas, bañeras y receptáculos de acrílico termoformado. Fabricamos en Plátanos, Buenos Aires, desde 1992.</p></div>
-    <div><h2 class="fh">Productos</h2><a href="spas.html">Spas</a><a href="baneras.html">Bañeras</a><a href="receptaculos.html">Receptáculos</a><a href="spas.html#elegir">Ayudame a elegir</a><a href="spas.html#comparar">Comparar spas</a></div>
+    <div><h2 class="fh">Productos</h2><a href="spas.html">Spas</a><a href="baneras.html">Bañeras</a><a href="receptaculos.html">Receptáculos</a><a href="personalizar.html">Personalizá tu bañera o spa</a><a href="spas.html#elegir">Ayudame a elegir</a><a href="spas.html#comparar">Comparar spas</a></div>
     <div><h2 class="fh">Empresa</h2><a href="revendedores.html">Profesionales</a><a href="empresa.html">Fábrica</a><a href="contacto.html#preguntas">Preguntas frecuentes</a><a href="contacto.html">Contacto</a></div>
     <div><h2 class="fh">Planta</h2><a href="contacto.html">Av. Nicolás Milazzo 3251</a><a href="contacto.html">Parque Industrial Plátanos</a><a href="${esc(wa("Hola! Quiero hacer una consulta."))}" target="_blank" rel="noopener">+54 11 3589-4707</a><span class="fsmall">Lunes a viernes, 8 a 17 h</span></div>
     <div class="legal">© 2026 Carrara Hidromasajes · Fabricación nacional · 5 años de garantía de fábrica</div>
@@ -89,7 +89,7 @@ const QUICK = `<div class="quick"><div class="wrap">
  <a href="spas.html#elegir"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><div><b>Ayudame a elegir</b><span>3 preguntas, un modelo</span></div></a>
  <a href="spas.html#comparar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg><div><b>Comparar spas</b><span>Medidas lado a lado</span></div></a>
  <a target="_blank" rel="noopener" href="${esc(wa("Hola! Quiero recibir el catálogo de Carrara."))}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h7"/></svg><div><b>Pedir catálogo</b><span>Fichas técnicas y fotos</span></div></a>
- <a href="revendedores.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21V9l9-5 9 5v12"/><path d="M9 21v-7h6v7"/></svg><div><b>Ser revendedor</b><span>Precio y condiciones de fábrica</span></div></a>
+ <a href="personalizar.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg><div><b>Personalizá la tuya</b><span>Modelo, opcionales y color</span></div></a>
 </div></div>`;
 
 const defaultPick = recommend("chico", 2, "espacio");
@@ -194,7 +194,7 @@ pages.push({ file: "index.html", nav: "", title: "Carrara Hidromasajes | Spas, b
   <div class="wrap"><div class="eyebrow" style="color:#9EE6E8">Fábrica en Plátanos · Desde 1992</div>
    <h1 style="margin-top:14px">El spa se fabrica acá.</h1>
    <p>Spas, bañeras y receptáculos de acrílico termoformado, hechos de cero en nuestra planta. Para tu casa, tu local o tu obra.</p>
-   <div class="ctas"><a class="btn btn-primary" href="spas.html#elegir">Ayudame a elegir</a><a class="btn btn-ghost" href="spas.html">Ver los spas</a></div></div></section>
+   <div class="ctas"><a class="btn btn-primary" href="personalizar.html">Personalizá la tuya</a><a class="btn btn-ghost" href="spas.html#elegir">Ayudame a elegir</a></div></div></section>
  ${QUICK}
  <section class="block"><div class="wrap">
   <div class="sec-head"><div><div class="eyebrow">Nuestras líneas</div><h2>Tres líneas, todas fabricadas en Plátanos.</h2></div><p>Del spa para la terraza al receptáculo para un edificio entero.</p></div>
@@ -209,7 +209,7 @@ pages.push({ file: "index.html", nav: "", title: "Carrara Hidromasajes | Spas, b
    <a class="use" href="spa-studio.html"><img src="${A("spa-studio-1")}" alt="" loading="lazy"><div><b>Terrazas y balcones</b><span>Hidromasaje completo en 183 × 160 cm.</span><em>Spa Studio →</em></div></a>
    <a class="use" href="spa-fiesta-195.html"><img src="${A("spa-redondo-1")}" alt="" loading="lazy"><div><b>Reuniones con amigos</b><span>Planta circular: todos mirando al centro.</span><em>Spa Fiesta 195 →</em></div></a>
    <a class="use" href="spa-tango-225.html"><img src="${A("spa-tango225-1")}" alt="" loading="lazy"><div><b>Inmersión total</b><span>90 cm de profundidad, para 5 o 6 personas.</span><em>Spa Tango 225 →</em></div></a>
-   <a class="use" href="baneras.html"><img src="${A("banera-minimalista")}" alt="" loading="lazy"><div><b>Reforma de baño</b><span>La Minimalista, en 7 medidas.</span><em>Bañeras →</em></div></a>
+   <a class="use" href="personalizar.html?m=banera-minimalista"><img src="${A("banera-minimalista")}" alt="" loading="lazy"><div><b>Reforma de baño</b><span>Armá tu Minimalista con los opcionales que quieras.</span><em>Personalizar →</em></div></a>
    <a class="use" href="receptaculos.html"><img src="${A("recept-cuadrado-2")}" alt="" loading="lazy"><div><b>Hoteles y cabañas</b><span>Receptáculos antideslizantes para uso intensivo.</span><em>Receptáculos →</em></div></a>
    <a class="use" href="revendedores.html"><img src="${A("banera-plus")}" alt="" loading="lazy"><div><b>Obras en serie</b><span>Cotización por volumen y entregas por etapa.</span><em>Profesionales →</em></div></a>
   </div></div></section>
@@ -239,7 +239,7 @@ SPAS.forEach(s => pages.push({ file: `spa-${s.id}.html`, nav: "spas.html",
    <div class="thumbs">${s.imgs.map((m, i) => `<button type="button" data-img="${m}" aria-pressed="${i === 0}" aria-label="Foto ${i + 1}"><img src="${A(m)}" alt="" loading="lazy"></button>`).join("")}</div></div>
   <div><div class="eyebrow">Spa · ${s.forma}</div><h1>${s.n}</h1><p class="lead">${s.long}</p>
    <div class="sheet"><div><span>Planta</span><b>${plan(s)} cm</b></div><div><span>Profundidad</span><b>${s.h} cm</b></div>${s.cap ? `<div><span>Capacidad</span><b>${s.cap}</b></div>` : ""}<div><span>Material</span><b>Acrílico termoformado</b></div><div><span>Cuba</span><b>1 pieza, sin uniones</b></div><div><span>Hidromasaje</span><b>Armado en planta</b></div><div><span>Garantía</span><b>5 años de fábrica</b></div></div>
-   <div class="ctas"><a class="btn btn-wa btn-sm" target="_blank" rel="noopener" href="${esc(wa(`Hola! Me interesa el spa ${s.n} (${dims(s)}). ¿Me pasan precio y plazo?`))}">${WA_ICON} Pedir precio por WhatsApp</a><a class="btn btn-ghost btn-sm" href="contacto.html?producto=${encodeURIComponent("Spa " + s.n)}">Dejar una consulta</a></div>
+   <div class="ctas"><a class="btn btn-primary btn-sm" href="personalizar.html?m=spa-${s.id}">Personalizar este spa</a><a class="btn btn-wa btn-sm" target="_blank" rel="noopener" href="${esc(wa(`Hola! Me interesa el spa ${s.n} (${dims(s)}). ¿Me pasan precio y plazo?`))}">${WA_ICON} Pedir precio por WhatsApp</a><a class="btn btn-ghost btn-sm" href="contacto.html?producto=${encodeURIComponent("Spa " + s.n)}">Dejar una consulta</a></div>
    <p class="note" style="margin-top:14px">¿No sabés cuál elegir? <a class="link" href="spas.html#comparar">Compará las medidas de los 5 spas</a>.</p></div></div></div>
  <section class="block" style="padding-top:0"><div class="wrap"><div class="sec-head"><div><div class="eyebrow">Otros modelos</div><h2>Seguí mirando.</h2></div></div><div class="grid">${SPAS.filter(x => x.id !== s.id).slice(0, 3).map(spaCard).join("")}</div></div></section>` }));
 
@@ -261,6 +261,12 @@ pages.push({ file: "baneras.html", nav: "baneras.html", title: "Bañeras con hid
 pages.push({ file: "receptaculos.html", nav: "receptaculos.html", title: "Receptáculos para ducha | Carrara Hidromasajes",
   description: "Receptáculos para ducha de fabricación nacional. 7 medidas, de 78 × 78 a 150 × 80 cm, todos con base antideslizante y desagüe centrado. Planta en Plátanos, Buenos Aires.",
   image: "assets/product-shower.webp", ld: [crumbsLd([["Inicio", ""], ["Receptáculos", "receptaculos.html"]])], body: famPage("recept", RECEPT) });
+
+pages.push({ file: "personalizar.html", nav: "personalizar.html", title: "Personalizá tu bañera o spa | Carrara Hidromasajes",
+  description: "Armá tu bañera o spa Carrara: elegí modelo, medida, hidromasaje, opcionales como apoyacabeza, cascadas o luces, y el color. Pedí el presupuesto directo de fábrica.",
+  image: "assets/banera-minimalista.webp", ld: [crumbsLd([["Inicio", ""], ["Personalizá", "personalizar.html"]])],
+  body: `${pageHead("Personalizá", "Personalizá tu bañera o spa", "Elegí el modelo, sumá los opcionales que quieras y el color. Te mandamos el presupuesto directo de fábrica por WhatsApp.", ["Fabricado en Plátanos", "Opcionales instalados en planta", "5 años de garantía"])}
+ <div id="cfg-box"><noscript><div class="wrap" style="padding-block:40px"><p>Para armar tu configuración necesitás JavaScript activado. También podés <a class="link" href="${esc(wa("Hola! Quiero personalizar una bañera / spa."))}">escribirnos por WhatsApp</a>.</p></div></noscript></div>` });
 
 pages.push({ file: "revendedores.html", nav: "revendedores.html", title: "Revendedores, arquitectos y constructoras | Carrara Hidromasajes",
   description: "Revendé la línea Carrara o especificala en tu obra. Precio de fábrica, fabricación nacional y atención directa para revendedores, arquitectos, constructoras y hoteles.",

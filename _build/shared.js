@@ -63,7 +63,7 @@ function famCard(f, kind, fit) {
   return `<article class="card${kind === "recept" ? " tall" : ""}"><div class="ph">${f.b ? `<span class="badge">${f.b}</span>` : ""}<img src="${A(f.img)}" alt="${label} Carrara" loading="lazy">${f.alt ? `<img class="alt" src="${A(f.alt)}" alt="" loading="lazy">` : ""}</div>
   <div class="bd"><h3 class="h4">${kind === "recept" ? f.n + " cm" : f.n}</h3>${f.forma ? `<div class="dim">${f.forma} · antideslizante · desagüe centrado</div>` : `<div class="dim">Con o sin hidromasaje</div>`}<p>${f.p}</p>
   ${kind === "banera" ? `<div class="sizes">${sizes}</div>` : ""}
-  <div class="act">${priceBtn(label, kind === "banera" && fit && fit.length ? fit[0] : "")}</div></div></article>`;
+  <div class="act">${kind === "banera" ? `<a class="link" href="personalizar.html?m=banera-${f.id}">Personalizar →</a>` : ""}${priceBtn(label, kind === "banera" && fit && fit.length ? fit[0] : "")}</div></div></article>`;
 }
 function quizResult(s) {
   return `<img src="${A(s.imgs[0])}" alt="Spa ${s.n}"><div class="bd"><div class="eyebrow">Te recomendamos</div><h3>${s.n}</h3><div class="mono" style="color:var(--accent)">${dims(s)}</div><p class="muted">${s.p}</p><div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px"><a class="btn btn-primary btn-sm" href="spa-${s.id}.html">Ver ficha</a>${priceBtn("Spa " + s.n, dims(s))}</div></div>`;
