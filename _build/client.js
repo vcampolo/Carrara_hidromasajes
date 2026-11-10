@@ -6,7 +6,7 @@
   // Conversión de Google Ads: cualquier clic en un link de WhatsApp (también los que se generan después)
   document.addEventListener("click", function (e) {
     var a = e.target.closest && e.target.closest('a[href^="https://wa.me/"]');
-    if (a && typeof gtag === "function") {
+    if (a && !a.hasAttribute("data-noconv") && typeof gtag === "function") {
       gtag("event", "conversion", { send_to: "AW-18254020421/Z0RYCJ_yzNAcEMX-mIBE", value: 1.0, currency: "ARS" });
     }
   });
@@ -70,9 +70,8 @@
   });
 
   // Formulario de contacto (Formspree → gracias.html, que Google Ads mide como conversión)
-  var form = $("#contact-form");
-  if (form) {
-    var status = $("#form-status");
+  $$("#contact-form, #service-form").forEach(function (form) {
+    var status = $("#form-status", form);
     var prod = new URLSearchParams(location.search).get("producto");
     if (prod) {
       var sel = form.querySelector('select[name="producto"]'), msg = form.querySelector('textarea[name="mensaje"]');
@@ -87,7 +86,7 @@
       btn.disabled = true; btn.textContent = "Enviando…"; status.className = "form-status"; status.textContent = "";
       fetch(form.action, { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } })
         .then(function (r) {
-          if (r.ok) { form.reset(); location.href = "gracias.html"; return; }
+          if (r.ok) { form.reset(); location.href = form.dataset.ok || "gracias.html"; return; }
           return r.json().catch(function () { return {}; }).then(function (d) {
             status.classList.add("error");
             status.textContent = (d.errors && d.errors[0] && d.errors[0].message) || "Hubo un problema al enviar. Probá de nuevo o escribinos por WhatsApp.";
@@ -96,7 +95,7 @@
         .catch(function () { status.classList.add("error"); status.textContent = "No se pudo enviar. Revisá tu conexión o escribinos por WhatsApp."; })
         .finally(function () { btn.disabled = false; btn.textContent = orig; });
     });
-  }
+  });
 })();
 
 /* ---------- Configurador (personalizar.html) ---------- */
