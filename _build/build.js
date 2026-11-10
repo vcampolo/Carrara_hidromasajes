@@ -22,7 +22,7 @@ const BUSINESS = {
 const crumbsLd = items => ({ "@context": "https://schema.org", "@type": "BreadcrumbList",
   itemListElement: items.map(([name, url], i) => ({ "@type": "ListItem", position: i + 1, name, item: SITE + url })) });
 
-const NAV = [["spas.html", "Spas"], ["baneras.html", "Bañeras"], ["receptaculos.html", "Receptáculos"], ["personalizar.html", "Personalizá"], ["revendedores.html", "Profesionales"], ["empresa.html", "Fábrica"], ["contacto.html", "Contacto"]];
+const NAV = [["spas.html", "Spas"], ["baneras.html", "Bañeras"], ["receptaculos.html", "Receptáculos"], ["personalizar.html", "Personalizá"], ["revendedores.html", "Profesionales"], ["empresa.html", "Fábrica"], ["service.html", "Service"], ["contacto.html", "Contacto"]];
 
 function layout({ file, title, description, image = "assets/hero-spa-real.jpg", nav, body, ld = [], robots }) {
   const canonical = SITE + (file === "index.html" ? "" : file);
@@ -70,7 +70,7 @@ ${body}
     <div class="brand"><span class="logo" role="img" aria-label="Carrara Hidromasajes"></span>
       <p style="margin-top:16px;font-size:15px;max-width:36ch">Spas, bañeras y receptáculos de acrílico termoformado. Fabricamos en Plátanos, Buenos Aires, desde 1992.</p></div>
     <div><h2 class="fh">Productos</h2><a href="spas.html">Spas</a><a href="baneras.html">Bañeras</a><a href="receptaculos.html">Receptáculos</a><a href="personalizar.html">Personalizá tu bañera o spa</a><a href="spas.html#elegir">Ayudame a elegir</a><a href="spas.html#comparar">Comparar spas</a></div>
-    <div><h2 class="fh">Empresa</h2><a href="revendedores.html">Profesionales</a><a href="empresa.html">Fábrica</a><a href="contacto.html#preguntas">Preguntas frecuentes</a><a href="contacto.html">Contacto</a></div>
+    <div><h2 class="fh">Empresa</h2><a href="revendedores.html">Profesionales</a><a href="empresa.html">Fábrica</a><a href="service.html">Service técnico</a><a href="contacto.html#preguntas">Preguntas frecuentes</a><a href="contacto.html">Contacto</a></div>
     <div><h2 class="fh">Planta</h2><a href="contacto.html">Av. Nicolás Milazzo 3251</a><a href="contacto.html">Parque Industrial Plátanos</a><a href="${esc(wa("Hola! Quiero hacer una consulta."))}" target="_blank" rel="noopener">+54 11 3589-4707</a><span class="fsmall">Lunes a viernes, 8 a 17 h</span></div>
     <div class="legal">© 2026 Carrara Hidromasajes · Fabricación nacional · 5 años de garantía de fábrica</div>
   </div>
@@ -299,6 +299,46 @@ pages.push({ file: "contacto.html", nav: "contacto.html", title: "Contacto | Car
   <button class="btn btn-primary" type="submit" style="justify-self:start">Enviar consulta</button>
   <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
  </form></div></section>${FAQ}` });
+
+pages.push({ file: "service.html", nav: "service.html", title: "Service técnico de hidromasajes y spas | Carrara Hidromasajes",
+  description: "Pedí service para tu bañera de hidromasaje o spa: reparación, mantenimiento, repuestos e instalación. Atendemos equipos Carrara y de otras marcas.",
+  ld: [crumbsLd([["Inicio", ""], ["Service", "service.html"]])],
+  body: `${pageHead("Service", "Service para tu hidromasaje o spa.", "Contanos qué equipo tenés y qué le pasa. Con las medidas, el problema y la zona te confirmamos visita, presupuesto y repuestos.", ["Equipos Carrara y otras marcas", "Repuestos de fábrica", "Desde 1992"])}
+ <section class="block" style="padding-top:24px"><div class="wrap contact">
+ <div><h2 style="font-size:28px">Cómo funciona</h2>
+  <ol class="svc-steps"><li><b>Completás el formulario.</b> Cuanto más detalle, mejor diagnóstico.</li><li><b>Se abre WhatsApp con tu pedido ya escrito.</b> Lo enviás y, si podés, sumás fotos o un video en el mismo chat.</li><li><b>Te respondemos el mismo día hábil</b> para confirmar cobertura en tu zona.</li><li><b>Coordinamos la visita</b> o te mandamos el repuesto, según el caso.</li></ol>
+  <p class="muted" style="margin-top:20px;max-width:44ch">Las fotos o un video del equipo nos ayudan a llevar el repuesto correcto.</p>
+  <a class="btn btn-wa" data-noconv style="margin-top:20px" target="_blank" rel="noopener" href="${esc(wa("Hola! Necesito service para mi hidromasaje / spa."))}">${WA_ICON} Pedir service por WhatsApp</a></div>
+ <form class="form" id="service-form" data-ok="service-enviado.html" action="https://formspree.io/f/xdarykeq" method="POST">
+  <fieldset class="fs"><legend>¿Tu equipo es Carrara? *</legend><div class="opts"><input type="radio" name="marca" required id="ma-0" value="Sí, es Carrara"><label for="ma-0">Sí, es Carrara</label><input type="radio" name="marca" id="ma-1" value="No, es de otra marca"><label for="ma-1">No, es de otra marca</label><input type="radio" name="marca" id="ma-2" value="No sé"><label for="ma-2">No sé</label></div></fieldset>
+  <fieldset class="fs"><legend>¿Qué equipo es? *</legend><div class="opts"><input type="radio" name="equipo" required id="eq-0" value="Bañera con hidromasaje"><label for="eq-0">Bañera con hidromasaje</label><input type="radio" name="equipo" id="eq-1" value="Spa"><label for="eq-1">Spa</label><input type="radio" name="equipo" id="eq-2" value="Bañera sin hidromasaje"><label for="eq-2">Bañera sin hidromasaje</label><input type="radio" name="equipo" id="eq-3" value="Otro"><label for="eq-3">Otro</label></div></fieldset>
+  <div class="row2"><label class="f" for="s-modelo">Modelo (si lo sabés)<input id="s-modelo" name="modelo" placeholder="Ej: Minimalista, Tango 225"></label>
+   <label class="f" for="s-anio">Año aproximado de compra<input id="s-anio" name="anio_compra" inputmode="numeric" placeholder="Ej: 2019"></label></div>
+  <div class="row2"><label class="f" for="s-largo">Largo (cm)<input id="s-largo" name="largo_cm" type="number" min="40" max="400" inputmode="numeric" placeholder="170"></label>
+   <label class="f" for="s-ancho">Ancho (cm)<input id="s-ancho" name="ancho_cm" type="number" min="40" max="400" inputmode="numeric" placeholder="80"></label></div>
+  <fieldset class="fs"><legend>¿Qué necesitás? *</legend><div class="opts"><input type="radio" name="servicio" required id="se-0" value="Reparación"><label for="se-0">Reparación</label><input type="radio" name="servicio" id="se-1" value="Mantenimiento / limpieza"><label for="se-1">Mantenimiento / limpieza</label><input type="radio" name="servicio" id="se-2" value="Repuestos"><label for="se-2">Repuestos</label><input type="radio" name="servicio" id="se-3" value="Instalación o reinstalación"><label for="se-3">Instalación o reinstalación</label></div></fieldset>
+  <fieldset class="fs"><legend>¿Qué le pasa? <span class="muted" style="font-weight:400">Marcá todo lo que aplique</span></legend><div class="opts"><input type="checkbox" name="problemas" id="pr-0" value="No arranca la bomba"><label for="pr-0">No arranca la bomba</label><input type="checkbox" name="problemas" id="pr-1" value="Pierde agua"><label for="pr-1">Pierde agua</label><input type="checkbox" name="problemas" id="pr-2" value="Jets sin fuerza"><label for="pr-2">Jets sin fuerza</label><input type="checkbox" name="problemas" id="pr-3" value="Hace ruido"><label for="pr-3">Hace ruido</label><input type="checkbox" name="problemas" id="pr-4" value="No calienta"><label for="pr-4">No calienta</label><input type="checkbox" name="problemas" id="pr-5" value="Luces o comandos"><label for="pr-5">Luces o comandos</label><input type="checkbox" name="problemas" id="pr-6" value="Salta la térmica"><label for="pr-6">Salta la térmica</label><input type="checkbox" name="problemas" id="pr-7" value="Rajadura o daño en el acrílico"><label for="pr-7">Rajadura o daño en el acrílico</label><input type="checkbox" name="problemas" id="pr-8" value="Olor o agua turbia"><label for="pr-8">Olor o agua turbia</label></div></fieldset>
+  <label class="f" for="s-msg">Contanos un poco más<textarea id="s-msg" name="detalle" placeholder="Desde cuándo pasa, si hace algún ruido, si salta la térmica, dónde ves la pérdida…"></textarea></label>
+  <div class="row2"><label class="f" for="s-loc">Localidad / barrio *<input id="s-loc" name="localidad" required placeholder="Ej: Quilmes, Palermo"></label>
+   <label class="f" for="s-zona">Zona *<select id="s-zona" name="zona" required><option value="">Elegí una opción</option><option>CABA</option><option>GBA Sur</option><option>GBA Oeste</option><option>GBA Norte</option><option>La Plata y alrededores</option><option>Interior de Buenos Aires</option><option>Otra provincia</option></select></label></div>
+  <label class="f" for="s-acceso">Acceso al equipo<select id="s-acceso" name="acceso"><option>No sé / no lo revisé</option><option>Tiene tapa o frente desmontable</option><option>Está amurado o embutido</option><option>Al aire libre (spa)</option></select></label>
+  <div class="row2"><label class="f" for="s-nombre">Nombre *<input id="s-nombre" name="nombre" required autocomplete="name"></label>
+   <label class="f" for="s-tel">Teléfono / WhatsApp *<input id="s-tel" name="telefono" type="tel" required autocomplete="tel" minlength="8" pattern="[0-9+() -]{8,20}" title="Ingresá un teléfono válido, ej: 11 3589-4707"></label></div>
+  <label class="f" for="s-email">Email<input id="s-email" name="email" type="email" autocomplete="email"></label>
+  <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+  <input type="hidden" name="_subject" value="Pedido de SERVICE desde carrarahidromasajes.com.ar">
+  <input type="hidden" name="tipo_consulta" value="Service técnico">
+  <button class="btn btn-wa" type="submit" style="justify-self:start">${WA_ICON} Enviar pedido por WhatsApp</button>
+  <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+ </form></div></section>` });
+
+pages.push({ file: "service-enviado.html", nav: "", title: "Pedido de service enviado | Carrara Hidromasajes", robots: "noindex, nofollow",
+  description: "Recibimos tu pedido de service. Te contactamos el mismo día hábil.",
+  body: `<section class="block"><div class="wrap" style="max-width:760px">
+  <div class="eyebrow">Pedido de service enviado</div><h1 class="h1c">Gracias, recibimos tu pedido.</h1>
+  <p class="muted" style="margin-top:16px;font-size:18px">Se abrió WhatsApp con tu pedido ya escrito: acordate de tocar <b>enviar</b> y, si podés, sumá fotos o un video del equipo. Te respondemos el mismo día hábil para confirmar la cobertura en tu zona.</p>
+  <div class="ctas" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px"><a class="btn btn-wa" id="svc-reopen" data-noconv target="_blank" rel="noopener" href="${esc(wa("Hola! Acabo de pedir service en la web. Les mando fotos del equipo."))}">${WA_ICON} Abrir WhatsApp de nuevo</a><a class="btn btn-ghost" href="index.html">Volver al inicio</a></div>
+ </div></section>` });
 
 pages.push({ file: "gracias.html", nav: "", title: "Consulta enviada | Carrara Hidromasajes", robots: "noindex, nofollow",
   description: "Recibimos tu consulta. Te respondemos el mismo día hábil.",

@@ -6,7 +6,7 @@
   // Conversión de Google Ads: cualquier clic en un link de WhatsApp (también los que se generan después)
   document.addEventListener("click", function (e) {
     var a = e.target.closest && e.target.closest('a[href^="https://wa.me/"]');
-    if (a && typeof gtag === "function") {
+    if (a && !a.hasAttribute("data-noconv") && typeof gtag === "function") {
       gtag("event", "conversion", { send_to: "AW-18254020421/Z0RYCJ_yzNAcEMX-mIBE", value: 1.0, currency: "ARS" });
     }
   });
@@ -69,10 +69,33 @@
     });
   });
 
+  // Pedido de service: arma el mensaje y abre WhatsApp; manda copia por mail (Formspree) por si no lo envían
+  var sf2 = $("#service-form");
+  if (sf2) sf2.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (!sf2.reportValidity()) return;
+    var fd = new FormData(sf2), g = function (n) { return (fd.get(n) || "").toString().trim(); };
+    var L = g("largo_cm"), W = g("ancho_cm"), probs = fd.getAll("problemas");
+    var lines = ["*Pedido de service (web)*",
+      "Equipo Carrara: " + g("marca"), "Equipo: " + g("equipo"),
+      g("modelo") && "Modelo: " + g("modelo"), g("anio_compra") && "Año de compra: " + g("anio_compra"),
+      (L || W) && "Medidas: " + (L || "?") + " × " + (W || "?") + " cm",
+      "Necesito: " + g("servicio"), probs.length && "Problemas: " + probs.join(", "),
+      g("detalle") && "Detalle: " + g("detalle"),
+      "Zona: " + g("localidad") + " (" + g("zona") + ")", "Acceso al equipo: " + g("acceso"),
+      "Nombre: " + g("nombre"), "Tel: " + g("telefono"), g("email") && "Email: " + g("email")];
+    var url = wa(lines.filter(Boolean).join("\n"));
+    try { fetch(sf2.action, { method: "POST", body: fd, headers: { Accept: "application/json" }, keepalive: true }); } catch (x) {}
+    try { sessionStorage.setItem("svc-wa", url); } catch (x) {}
+    var w = window.open(url, "_blank");
+    location.href = w ? "service-enviado.html" : url;
+  });
+  var ro = $("#svc-reopen");
+  if (ro) { try { var u = sessionStorage.getItem("svc-wa"); if (u) ro.href = u; } catch (x) {} }
+
   // Formulario de contacto (Formspree → gracias.html, que Google Ads mide como conversión)
-  var form = $("#contact-form");
-  if (form) {
-    var status = $("#form-status");
+  $$("#contact-form").forEach(function (form) {
+    var status = $("#form-status", form);
     var prod = new URLSearchParams(location.search).get("producto");
     if (prod) {
       var sel = form.querySelector('select[name="producto"]'), msg = form.querySelector('textarea[name="mensaje"]');
@@ -87,7 +110,7 @@
       btn.disabled = true; btn.textContent = "Enviando…"; status.className = "form-status"; status.textContent = "";
       fetch(form.action, { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } })
         .then(function (r) {
-          if (r.ok) { form.reset(); location.href = "gracias.html"; return; }
+          if (r.ok) { form.reset(); location.href = form.dataset.ok || "gracias.html"; return; }
           return r.json().catch(function () { return {}; }).then(function (d) {
             status.classList.add("error");
             status.textContent = (d.errors && d.errors[0] && d.errors[0].message) || "Hubo un problema al enviar. Probá de nuevo o escribinos por WhatsApp.";
@@ -96,7 +119,7 @@
         .catch(function () { status.classList.add("error"); status.textContent = "No se pudo enviar. Revisá tu conexión o escribinos por WhatsApp."; })
         .finally(function () { btn.disabled = false; btn.textContent = orig; });
     });
-  }
+  });
 })();
 
 /* ---------- Configurador (personalizar.html) ---------- */
