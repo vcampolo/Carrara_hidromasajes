@@ -69,8 +69,32 @@
     });
   });
 
+  // Pedido de service: arma el mensaje y abre WhatsApp; manda copia por mail (Formspree) por si no lo envían
+  var sf2 = $("#service-form");
+  if (sf2) sf2.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (!sf2.reportValidity()) return;
+    var fd = new FormData(sf2), g = function (n) { return (fd.get(n) || "").toString().trim(); };
+    var L = g("largo_cm"), W = g("ancho_cm"), probs = fd.getAll("problemas");
+    var lines = ["*Pedido de service (web)*",
+      "Equipo Carrara: " + g("marca"), "Equipo: " + g("equipo"),
+      g("modelo") && "Modelo: " + g("modelo"), g("anio_compra") && "Año de compra: " + g("anio_compra"),
+      (L || W) && "Medidas: " + (L || "?") + " × " + (W || "?") + " cm",
+      "Necesito: " + g("servicio"), probs.length && "Problemas: " + probs.join(", "),
+      g("detalle") && "Detalle: " + g("detalle"),
+      "Zona: " + g("localidad") + " (" + g("zona") + ")", "Acceso al equipo: " + g("acceso"),
+      "Nombre: " + g("nombre"), "Tel: " + g("telefono"), g("email") && "Email: " + g("email")];
+    var url = wa(lines.filter(Boolean).join("\n"));
+    try { fetch(sf2.action, { method: "POST", body: fd, headers: { Accept: "application/json" }, keepalive: true }); } catch (x) {}
+    try { sessionStorage.setItem("svc-wa", url); } catch (x) {}
+    var w = window.open(url, "_blank");
+    location.href = w ? "service-enviado.html" : url;
+  });
+  var ro = $("#svc-reopen");
+  if (ro) { try { var u = sessionStorage.getItem("svc-wa"); if (u) ro.href = u; } catch (x) {} }
+
   // Formulario de contacto (Formspree → gracias.html, que Google Ads mide como conversión)
-  $$("#contact-form, #service-form").forEach(function (form) {
+  $$("#contact-form").forEach(function (form) {
     var status = $("#form-status", form);
     var prod = new URLSearchParams(location.search).get("producto");
     if (prod) {

@@ -306,8 +306,8 @@ pages.push({ file: "service.html", nav: "service.html", title: "Service técnico
   body: `${pageHead("Service", "Service para tu hidromasaje o spa.", "Contanos qué equipo tenés y qué le pasa. Con las medidas, el problema y la zona te confirmamos visita, presupuesto y repuestos.", ["Equipos Carrara y otras marcas", "Repuestos de fábrica", "Desde 1992"])}
  <section class="block" style="padding-top:24px"><div class="wrap contact">
  <div><h2 style="font-size:28px">Cómo funciona</h2>
-  <ol class="svc-steps"><li><b>Completás el formulario.</b> Cuanto más detalle, mejor diagnóstico.</li><li><b>Te contactamos el mismo día hábil</b> para confirmar cobertura en tu zona y pedirte fotos o un video.</li><li><b>Coordinamos la visita</b> o te mandamos el repuesto, según el caso.</li></ol>
-  <p class="muted" style="margin-top:20px;max-width:44ch">¿Tenés fotos o un video del problema? Mandalos por WhatsApp después de enviar el formulario, nos ayudan a llevar el repuesto correcto.</p>
+  <ol class="svc-steps"><li><b>Completás el formulario.</b> Cuanto más detalle, mejor diagnóstico.</li><li><b>Se abre WhatsApp con tu pedido ya escrito.</b> Lo enviás y, si podés, sumás fotos o un video en el mismo chat.</li><li><b>Te respondemos el mismo día hábil</b> para confirmar cobertura en tu zona.</li><li><b>Coordinamos la visita</b> o te mandamos el repuesto, según el caso.</li></ol>
+  <p class="muted" style="margin-top:20px;max-width:44ch">Las fotos o un video del equipo nos ayudan a llevar el repuesto correcto.</p>
   <a class="btn btn-wa" data-noconv style="margin-top:20px" target="_blank" rel="noopener" href="${esc(wa("Hola! Necesito service para mi hidromasaje / spa."))}">${WA_ICON} Pedir service por WhatsApp</a></div>
  <form class="form" id="service-form" data-ok="service-enviado.html" action="https://formspree.io/f/xdarykeq" method="POST">
   <fieldset class="fs"><legend>¿Tu equipo es Carrara? *</legend><div class="opts"><input type="radio" name="marca" required id="ma-0" value="Sí, es Carrara"><label for="ma-0">Sí, es Carrara</label><input type="radio" name="marca" id="ma-1" value="No, es de otra marca"><label for="ma-1">No, es de otra marca</label><input type="radio" name="marca" id="ma-2" value="No sé"><label for="ma-2">No sé</label></div></fieldset>
@@ -328,7 +328,7 @@ pages.push({ file: "service.html", nav: "service.html", title: "Service técnico
   <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
   <input type="hidden" name="_subject" value="Pedido de SERVICE desde carrarahidromasajes.com.ar">
   <input type="hidden" name="tipo_consulta" value="Service técnico">
-  <button class="btn btn-primary" type="submit" style="justify-self:start">Pedir service</button>
+  <button class="btn btn-wa" type="submit" style="justify-self:start">${WA_ICON} Enviar pedido por WhatsApp</button>
   <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
  </form></div></section>` });
 
@@ -336,8 +336,8 @@ pages.push({ file: "service-enviado.html", nav: "", title: "Pedido de service en
   description: "Recibimos tu pedido de service. Te contactamos el mismo día hábil.",
   body: `<section class="block"><div class="wrap" style="max-width:760px">
   <div class="eyebrow">Pedido de service enviado</div><h1 class="h1c">Gracias, recibimos tu pedido.</h1>
-  <p class="muted" style="margin-top:16px;font-size:18px">Te contactamos el mismo día hábil para confirmar la cobertura en tu zona y coordinar. Si tenés fotos o un video del equipo o del problema, mandalos por WhatsApp: nos ayudan a llevar el repuesto correcto.</p>
-  <div class="ctas" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px"><a class="btn btn-wa" data-noconv target="_blank" rel="noopener" href="${esc(wa("Hola! Acabo de pedir service en la web. Les mando fotos del equipo."))}">${WA_ICON} Mandar fotos por WhatsApp</a><a class="btn btn-ghost" href="index.html">Volver al inicio</a></div>
+  <p class="muted" style="margin-top:16px;font-size:18px">Se abrió WhatsApp con tu pedido ya escrito: acordate de tocar <b>enviar</b> y, si podés, sumá fotos o un video del equipo. Te respondemos el mismo día hábil para confirmar la cobertura en tu zona.</p>
+  <div class="ctas" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px"><a class="btn btn-wa" id="svc-reopen" data-noconv target="_blank" rel="noopener" href="${esc(wa("Hola! Acabo de pedir service en la web. Les mando fotos del equipo."))}">${WA_ICON} Abrir WhatsApp de nuevo</a><a class="btn btn-ghost" href="index.html">Volver al inicio</a></div>
  </div></section>` });
 
 pages.push({ file: "gracias.html", nav: "", title: "Consulta enviada | Carrara Hidromasajes", robots: "noindex, nofollow",
