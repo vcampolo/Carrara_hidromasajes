@@ -302,10 +302,10 @@ pages.push({ file: "contacto.html", nav: "contacto.html", title: "Contacto | Car
 
 pages.push({ file: "service.html", nav: "service.html", title: "Service técnico de hidromasajes y spas | Carrara Hidromasajes",
   description: "Pedí service para tu bañera de hidromasaje o spa: reparación, mantenimiento, repuestos e instalación. Atendemos equipos Carrara y de otras marcas.",
-  ld: [crumbsLd([["Inicio", ""], ["Service", "service.html"]])],
+  image: "assets/service-tecnico.webp", ld: [crumbsLd([["Inicio", ""], ["Service", "service.html"]])],
   body: `${pageHead("Service", "Service para tu hidromasaje o spa.", "Contanos qué equipo tenés y qué le pasa. Con las medidas, el problema y la zona te confirmamos visita, presupuesto y repuestos.", ["Equipos Carrara y otras marcas", "Repuestos de fábrica", "Desde 1992"])}
  <section class="block" style="padding-top:24px"><div class="wrap contact">
- <div><h2 style="font-size:28px">Cómo funciona</h2>
+ <div><img class="svc-img" src="assets/service-tecnico.webp" alt="Técnico de Carrara revisando la bomba y el filtro de un spa" width="1400" height="1050" loading="eager"><h2 style="font-size:28px">Cómo funciona</h2>
   <ol class="svc-steps"><li><b>Completás el formulario.</b> Cuanto más detalle, mejor diagnóstico.</li><li><b>Se abre WhatsApp con tu pedido ya escrito.</b> Lo enviás y, si podés, sumás fotos o un video en el mismo chat.</li><li><b>Te respondemos el mismo día hábil</b> para confirmar cobertura en tu zona.</li><li><b>Coordinamos la visita</b> o te mandamos el repuesto, según el caso.</li></ol>
   <p class="muted" style="margin-top:20px;max-width:44ch">Las fotos o un video del equipo nos ayudan a llevar el repuesto correcto.</p>
   <a class="btn btn-wa" data-noconv style="margin-top:20px" target="_blank" rel="noopener" href="${esc(wa("Hola! Necesito service para mi hidromasaje / spa."))}">${WA_ICON} Pedir service por WhatsApp</a></div>
