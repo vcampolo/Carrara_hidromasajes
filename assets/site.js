@@ -1,7 +1,7 @@
 /* Generado por _build/build.js — no editar a mano */
 /* Datos y plantillas compartidas: las usa build.js para generar las páginas
    y se copian dentro de assets/site.js para el buscador, el filtro y la guía. */
-const WA_NUM = "541135894707";
+const WA_NUM = "5491178130958";
 const wa = t => `https://wa.me/${WA_NUM}?text=${encodeURIComponent(t)}`;
 const A = n => `assets/${n}.webp`;
 const esc = s => String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");

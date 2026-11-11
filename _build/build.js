@@ -15,7 +15,7 @@ const BUSINESS = {
   "@context": "https://schema.org", "@type": "LocalBusiness", name: "Carrara Hidromasajes",
   description: "Fabricantes de spas, bañeras, hidromasajes y receptáculos desde 1992.",
   url: SITE, logo: SITE + "assets/carrara-logo.png", image: SITE + "assets/hero-spa-real.jpg",
-  telephone: "+541135894707", email: "valentin@carrarahidromasajes.com.ar", foundingDate: "1992", priceRange: "$$",
+  telephone: "+5491178130958", email: "valentin@carrarahidromasajes.com.ar", foundingDate: "1992", priceRange: "$$",
   address: { "@type": "PostalAddress", streetAddress: "Av. Nicolás Milazzo 3251, Parque Industrial Plátanos", addressLocality: "Plátanos", addressRegion: "Buenos Aires", addressCountry: "AR" },
   openingHours: "Mo-Fr 08:00-17:00", areaServed: "AR"
 };
@@ -71,7 +71,7 @@ ${body}
       <p style="margin-top:16px;font-size:15px;max-width:36ch">Spas, bañeras y receptáculos de acrílico termoformado. Fabricamos en Plátanos, Buenos Aires, desde 1992.</p></div>
     <div><h2 class="fh">Productos</h2><a href="spas.html">Spas</a><a href="baneras.html">Bañeras</a><a href="receptaculos.html">Receptáculos</a><a href="personalizar.html">Personalizá tu bañera o spa</a><a href="spas.html#elegir">Ayudame a elegir</a><a href="spas.html#comparar">Comparar spas</a></div>
     <div><h2 class="fh">Empresa</h2><a href="revendedores.html">Profesionales</a><a href="empresa.html">Fábrica</a><a href="service.html">Service técnico</a><a href="contacto.html#preguntas">Preguntas frecuentes</a><a href="contacto.html">Contacto</a></div>
-    <div><h2 class="fh">Planta</h2><a href="contacto.html">Av. Nicolás Milazzo 3251</a><a href="contacto.html">Parque Industrial Plátanos</a><a href="${esc(wa("Hola! Quiero hacer una consulta."))}" target="_blank" rel="noopener">+54 11 3589-4707</a><span class="fsmall">Lunes a viernes, 8 a 17 h</span></div>
+    <div><h2 class="fh">Planta</h2><a href="contacto.html">Av. Nicolás Milazzo 3251</a><a href="contacto.html">Parque Industrial Plátanos</a><a href="${esc(wa("Hola! Quiero hacer una consulta."))}" target="_blank" rel="noopener">+54 11 7813-0958</a><span class="fsmall">Lunes a viernes, 8 a 17 h</span></div>
     <div class="legal">© 2026 Carrara Hidromasajes · Fabricación nacional · 5 años de garantía de fábrica</div>
   </div>
 </footer>
@@ -284,11 +284,11 @@ pages.push({ file: "contacto.html", nav: "contacto.html", title: "Contacto | Car
   body: `<section class="block"><div class="wrap contact">
  <div><nav class="crumbs" aria-label="Ruta" style="font:12px var(--f-mono);color:var(--muted)"><a href="index.html" style="text-decoration:none">Inicio</a> / Contacto</nav><h1 class="h1c">Contanos qué estás armando.</h1>
   <p class="muted" style="margin-top:16px;max-width:44ch">Con el producto, una medida aproximada y la zona ya podemos cotizarte. Te respondemos el mismo día hábil.</p>
-  <div class="info"><div><span class="l">WhatsApp / Teléfono</span><span class="v mono">+54 11 3589-4707</span></div><div><span class="l">Email</span><span class="v">valentin@carrarahidromasajes.com.ar</span></div><div><span class="l">Planta</span><span class="v">Av. Nicolás Milazzo 3251<br>Parque Industrial Plátanos, Buenos Aires</span></div><div><span class="l">Horario</span><span class="v">Lunes a viernes, 8 a 17 h</span></div></div>
+  <div class="info"><div><span class="l">WhatsApp / Teléfono</span><span class="v mono">+54 11 7813-0958</span></div><div><span class="l">Email</span><span class="v">valentin@carrarahidromasajes.com.ar</span></div><div><span class="l">Planta</span><span class="v">Av. Nicolás Milazzo 3251<br>Parque Industrial Plátanos, Buenos Aires</span></div><div><span class="l">Horario</span><span class="v">Lunes a viernes, 8 a 17 h</span></div></div>
   <a class="btn btn-wa" style="margin-top:24px" target="_blank" rel="noopener" href="${esc(wa("Hola! Quiero hacer una consulta."))}">${WA_ICON} Escribir por WhatsApp</a></div>
  <form class="form" id="contact-form" action="https://formspree.io/f/xdarykeq" method="POST">
   <div class="row2"><label class="f" for="k-nombre">Nombre *<input id="k-nombre" name="nombre" required autocomplete="name"></label>
-   <label class="f" for="k-tel">Teléfono *<input id="k-tel" name="telefono" type="tel" required autocomplete="tel" minlength="8" pattern="[0-9+() -]{8,20}" title="Ingresá un teléfono válido, ej: 11 3589-4707"></label></div>
+   <label class="f" for="k-tel">Teléfono *<input id="k-tel" name="telefono" type="tel" required autocomplete="tel" minlength="8" pattern="[0-9+() -]{8,20}" title="Ingresá un teléfono válido, ej: 11 2345-6789"></label></div>
   <div class="row2"><label class="f" for="k-email">Email<input id="k-email" name="email" type="email" autocomplete="email"></label>
    <label class="f" for="k-zona">Localidad<input id="k-zona" name="localidad"></label></div>
   <div class="row2"><label class="f" for="k-perfil">Consulto como<select id="k-perfil" name="perfil"><option>Particular</option><option>Revendedor / distribuidor</option><option>Arquitecto / estudio</option><option>Constructora / hotel</option></select></label>
@@ -323,7 +323,7 @@ pages.push({ file: "service.html", nav: "service.html", title: "Service técnico
    <label class="f" for="s-zona">Zona *<select id="s-zona" name="zona" required><option value="">Elegí una opción</option><option>CABA</option><option>GBA Sur</option><option>GBA Oeste</option><option>GBA Norte</option><option>La Plata y alrededores</option><option>Interior de Buenos Aires</option><option>Otra provincia</option></select></label></div>
   <label class="f" for="s-acceso">Acceso al equipo<select id="s-acceso" name="acceso"><option>No sé / no lo revisé</option><option>Tiene tapa o frente desmontable</option><option>Está amurado o embutido</option><option>Al aire libre (spa)</option></select></label>
   <div class="row2"><label class="f" for="s-nombre">Nombre *<input id="s-nombre" name="nombre" required autocomplete="name"></label>
-   <label class="f" for="s-tel">Teléfono / WhatsApp *<input id="s-tel" name="telefono" type="tel" required autocomplete="tel" minlength="8" pattern="[0-9+() -]{8,20}" title="Ingresá un teléfono válido, ej: 11 3589-4707"></label></div>
+   <label class="f" for="s-tel">Teléfono / WhatsApp *<input id="s-tel" name="telefono" type="tel" required autocomplete="tel" minlength="8" pattern="[0-9+() -]{8,20}" title="Ingresá un teléfono válido, ej: 11 2345-6789"></label></div>
   <label class="f" for="s-email">Email<input id="s-email" name="email" type="email" autocomplete="email"></label>
   <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
   <input type="hidden" name="_subject" value="Pedido de SERVICE desde carrarahidromasajes.com.ar">
